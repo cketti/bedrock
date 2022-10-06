@@ -12,6 +12,10 @@
         background-image: url('/media/img/firefox/family/grid-doomscrollhole-desktop.svg');
     }
 
+    @media (prefers-reduced-motion: no-preference) {
+        background-attachment: fixed;
+    }
+
     .c-module-tag-title {
         background-color: f3.$violet-primary;
     }

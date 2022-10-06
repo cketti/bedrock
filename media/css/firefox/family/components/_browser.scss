@@ -76,70 +76,19 @@
     }
 }
 
-// if js and no-preference for motion
-@keyframes pop-in {
-    0% {
-      transform: scale(0.25);
-      opacity: 0; /* this has to be on element if js is enabled, then js adds animate class */
+.js {
+    @media (prefers-reduced-motion: no-preference) {
+        .c-browser {
+            opacity: 0;
+        }
+
+        // stagger multiple pop-ins on mental health section
+        .animate-pop-in.t-content-container {
+            animation-delay: f3.$animation-duration;
+        }
+
+        .animate-pop-in.t-stop-button-container {
+            animation-delay: calc(#{f3.$animation-duration} * 2);
+        }
     }
-
-    25% {
-      opacity: 1;
-    }
-
-    49% {
-      transform: scale(0.25);
-    }
-
-    50% {
-      transform: scale(0.5);
-    }
-
-
-    74% {
-      transform: scale(0.5);
-    }
-
-    75% {
-      transform: scale(1.1);
-    }
-
-    90% {
-      transform: scale(1.1);
-    }
-
-    99% {
-      transform: scale(1.1);
-    }
-
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  .c-browser:not(.t-color-switch) {
-    opacity: 0;
-  }
-
-  $duration: 0.5s;
-.animate-pop-in {
-    opacity: 0;
-    animation: $duration step-end 0s 1 normal forwards running pop-in;
-  }
-
-.t-content-container {
-    animation-delay: calc(#{$duration} * 2);
 }
-
-.t-stop-button-container {
-    animation-delay: calc(#{$duration} * 3);
-}
-
-// initial impressions:
-// maybe only worthwhile on the mental health section?
-// although problematic on mobile (absolute positioning disrupts threshold trigger?)
-// login form needs a fix for z-index overlap (position rel on blurb)
-// private browsing already gets color switch animation
-// bullying already gets radiating heart animation
-

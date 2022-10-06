@@ -216,6 +216,12 @@
     },
     {
       "files": [
+        "css/mozorg/home/home-firefox-family-promo.scss"
+      ],
+      "name": "home-firefox-family-promo"
+    },
+    {
+      "files": [
         "css/newsletter/newsletter.scss"
       ],
       "name": "newsletter"
@@ -273,6 +279,12 @@
         "css/base/banners/mozilla-connect.scss"
       ],
       "name": "mozilla-connect-banner"
+    },
+    {
+      "files": [
+        "css/base/banners/pocket-eu.scss"
+      ],
+      "name": "pocket-eu-banner"
     },
     {
       "files": [
@@ -1454,6 +1466,13 @@
     },
     {
       "files": [
+        "js/base/banners/mozilla-banner.js",
+        "js/base/banners/pocket-eu-banner-init.js"
+      ],
+      "name": "pocket-eu-banner"
+    },
+    {
+      "files": [
         "protocol/js/protocol-sidemenu.js",
         "js/base/mozilla-article.js",
         "js/privacy/privacy-protocol.js"
@@ -1931,7 +1950,9 @@
         "js/firefox/family/banner-init.es6.js",
         "js/firefox/family/fx-is-default.es6.js",
         "js/firefox/family/fx-is-default-init.es6.js",
-        "js/firefox/family/animate-pop-in.js"
+        "js/firefox/family/copy-to-clipboard.js",
+        "js/firefox/family/animate-pop-in.es6.js",
+        "js/firefox/family/animate-pop-in-init.es6.js"
       ],
       "name": "firefox-family"
     }
