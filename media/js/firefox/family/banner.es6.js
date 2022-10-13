@@ -8,6 +8,13 @@ let dadJokesBanner;
 let dadJokesBannerClose;
 let emojiWrapper;
 
+function motionAllowed() {
+    return (
+        'matchMedia' in window &&
+        window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+    );
+}
+
 function showBanner() {
     // remove unneeded event listener
     document.removeEventListener('scroll', showBanner);
@@ -24,10 +31,13 @@ function hideBanner() {
         'data-banner-dismissal': '1',
         event: 'in-page-interaction'
     });
-    // hide banner button, start emoji animation
-    emojiWrapper.classList.add('animate-bubbles');
-    dadJokesBannerClose.style.visibility = 'hidden';
-    // fade out banner after last emoji bubble
+    // start emoji animation according to user preference
+    const userPrefAnimation = motionAllowed()
+        ? 'animate-bubbles'
+        : 'animate-emoji-appearance';
+    emojiWrapper.classList.add(userPrefAnimation);
+    dadJokesBannerClose.setAttribute('disabled', 'true');
+    // fade out banner
     emojiWrapper.addEventListener('animationend', (e) => fadeOutBanner(e));
     // remove banner from accessibility tree
     dadJokesBanner.addEventListener('transitionend', removeBanner);
@@ -69,7 +79,7 @@ const init = function () {
     });
 
     dadJokesBanner
-        .querySelector('.dad-jokes-banner-button-wrapper')
+        .querySelector('.c-dad-jokes-banner-button-wrapper')
         .appendChild(emojiWrapper);
 
     // add event listeners
